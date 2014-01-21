@@ -1,4 +1,4 @@
 1/21
 1,完成then()函数，支持keyframes里设置多个key
 2,完善play()函数，动画节点支持id字符串参数，time提供默认值3s
-3,考虑提供对keyframes对象的操作功能，比如copy, add, find, delete
+3,考虑提供keyframes对象的复用机制，目前提供clone()函数，复制并修改源对象
