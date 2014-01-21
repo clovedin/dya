@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>demo04测试用模拟器</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+      body{
+        margin: 0;padding: 0;
+      }
+
+/*        @-webkit-keyframes big{
+          from{height: 200px;width: 200px;}
+          50%{height: 20px;width: 20px;}
+          to{height: 200px;width: 200px;}
+        }
+        @-webkit-keyframes color{
+          from{background-color: #333;}
+          50%{background-color: #eee;}
+          to{background-color: #333;}
+        }
+        @-webkit-keyframes tf{
+          from{}
+          to{-webkit-transform:skew(60deg);}
+        }*/
+
+/*        @-webkit-keyframes tf{
+          from{-webkit-transform:rotate(0deg);}
+          60%{-webkit-transform:skew(30deg);}
+          30%{-webkit-transform: translate(0px, 300px);}
+          100%{-webkit-transform: translate(300px, 0px);} 
+        }*/
+
+        #test1, #test2, #test3{
+          z-index: 1000;top: 0;
+          position: absolute;left: 300px;
+          width:200px;height: 200px;
+          text-align: center;
+          line-height: 200px;font-size: 42px;
+        }
+        #test1{
+          background-color: yellow;
+/*          -webkit-animation-name:tf;
+          -webkit-animation-duration:10s;*/
+        }
+        #test2{
+          top: 220px;
+          background-color: lime;
+        }
+        #test3{
+          top: 440px;
+          background-color: orange;
+        }
+        #gridX, #gridY{
+          margin: 0;padding: 0;
+          width: 100%;
+        }
+        #gridX{
+          position: absolute;
+          z-index: 100;
+        }
+        #gridY{
+          position: absolute;
+          z-index: 101;
+          top:-800px;
+          -webkit-transform:rotate(90deg);
+        }
+        #gridX > *, #gridY > *{
+          margin: 0;padding: 0;
+          line-height: 30px;
+        }
+    </style>
+  </head>
+  <body>
+      <div id="gridX">
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+        &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+    </div>
+    <div id="gridY">
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+      &nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>&nbsp;<hr>
+    </div>
+  		<div id="test1">Click-1</div>
+      <div id="test2">Click-2</div><hr>
+      <div id="test3">Click-3</div>
+
+      <script type="text/javascript" src='dya-dev.js'></script>
+      <script type="text/javascript">
+          // var kfx = new keyframes();
+          // kfx.scale(1.2).translate(30).play($('test'));
+          // console.log(kfx.rules);
+
+          // console.log('%o', $('test').style);
+          var status = 0;
+          var index = 0;
+          var kfx = new keyframes();
+          var t1 = $('test1');
+          var t2 = $('test2');
+          // var t3 = $('test3');
+
+          //demo01 单击动画
+          // var tm =  setInterval(function(){
+          //   console.log((index++)+'ms');
+          // }, 10);
+
+          // var pr = setInterval(function(){
+
+          //   if (status%2 == 0) {
+          //       // kfx.pause($('test'));
+          //       console.log('paused '+status);
+          //       kfx.pause($('test'));
+          //   }else{
+          //       // kfx.resume($('test'));
+          //       console.log('running '+status);
+          //       kfx.resume($('test'));
+          //   };
+          //   status++;
+          // }, 1000);
+
+          // kfx.scale(0.2, 0.2).translate(300).play($('test'), 10, {fillMode:'forwards',timing:'linear'}, function(){
+          //   console.log('---->>>>>>');
+          //   clearInterval(pr);
+          //   clearInterval(tm);
+          // });
+
+        //demo02 快速旋转的正方形，单击事件触发，开始，暂停，继续
+        // $('test').addEventListener('click', function(){
+        //     if (kfx.status == -1) {
+        //       kfx.rotate(3600).origin(50, 50).play($('test'), 1, {fillMode:'forwards',iteration:'infinite',timing:'linear'}, null, function(){
+        //             console.log('time : '+(++index) );
+        //       });
+        //     }else if(kfx.status == 0 || (kfx.status == 2)){
+        //         kfx.pause($('test'));
+        //     }else if(kfx.status == -2){
+        //         kfx.resume($('test'));
+        //     };
+            
+        // }, false);
+          
+        //demo21 keyframes有多个key的调用形式1: .start().xx().then().xx().end();
+        // kfx.start({origin:'20% 20%'}).rotate(90).then(50, {origin:'50% 50%'}).scale(1.2).then().translate(300).end();
+        // kfx.play($('test'), 10);
+        // console.log(kfx.rules);
+
+        //demo22 keyframes有多个key的调用形式2: .xx().then().xx();
+        //该种形式下有两种子形式，1，then()的参数不为空或者不为100时，动画在xx()后开始，到达then指定的比例后，做xx(), 最后回到原点
+        // kfx.rotate(60).then(50).translate(300);
+        // kfx.play(tst);
+        //子形式2，then()的参数为空或者100时，动画在xx()后开始，并以xx()结束
+        // kfx.rotate(60).then().translate(300);
+        // kfx.play(tst);
+
+        //demo23 支持多key下的，最简单调用形式。
+        // kfx.translate(300);
+        // kfx.play(tst);
+
+        // kfx.translate(300);
+        // kfx.play(t1, 1, {fillMode:'forwards'});
+        // kfx.translate(600);
+        // kfx.play(t2, 2, {fillMode:'forwards'});
+        // kfx.play(t3, 3, {fillMode:'forwards'});
+
+        kfx.start().scale(2).then(30).scale(4).then(60).skew(30).end();
+        kfx.play(t1, 30);
+        console.log('old: '+kfx.name+'\n'+kfx.rules);
+
+        kfy = kfx.clone('30%{-webkit-transform:scale(1,2);}');
+        kfy.play(t2, 30);
+        console.log('new: '+kfy.name+'\n'+kfy.rules);
+
+      </script>
+  </body>
